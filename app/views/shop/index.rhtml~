@@ -1,0 +1,38 @@
+<div class="stripes"><span></span></div>
+<div class="main">
+
+<div class="left">
+  <div id="content" class="content">
+    <h2>Items to pick:</h2>
+    <%= render :partial => "scripts" %>
+  </div>
+</div>
+
+<div class="right">
+  <div class="subnav">
+    <div id="cart" class="cart">
+      <div id="items"><%= render :partial => "cart" %></div>
+      <div style="clear:both;"></div>
+    </div>
+ 
+    <p id="list-info"></p>
+
+    <%= drop_receiving_element "cart", 
+          :update => "items", 
+          :url => { :action => "add" },
+          :accept => "scripts", 
+          :hoverclass => "cart-active",
+          :loading => "Element.show('indicator')",
+          :complete => "Element.hide('indicator'); Element.hide(element);" %>
+  </div>
+</div>
+
+
+<div class="clearer"><span></span></div>
+
+
+</div>
+
+<div class="stripes"><span></span></div>
+<a href="/shop/clear">Clear Items</a> | Download
+

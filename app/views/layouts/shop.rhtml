@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1"/>
+  <%= stylesheet_link_tag 'custom', :media => 'all' %>
+  <%= javascript_include_tag :defaults %>
+  <title>Epocrates Script Picker</title>
+</head>
+
+<body>
+<div class="container">
+  <div class="header"><a href="index.html"><span>Epocrates Script Picker</span></a>
+
+<div id="cart_indicator">
+<p id="indicator" style="display:none;">
+      <%= image_tag "/images/indicator.gif" %> Updating cart...
+    </p>
+</div>
+  </div>
+  <%= @content_for_layout %>  
+</div>
+</body>
+</html>
+

@@ -1,0 +1,67 @@
+<!-- Column toggle -->
+<div> columns: 
+  <a href="#" onclick="Element.hide('col_2'); $('col_1').style.width = '480px'; return false;">one</a> | 
+  <a href="#" onclick="Element.show('col_2'); $('col_1').style.width = '240px'; return false;">two</a> 
+</div>
+
+
+<!-- Column 1 -->
+<div id="col_1_drop">
+<ul id="col_1">
+<% session[:col_1].each do |script,quantity| %>
+      <li id="item_<%= Script.find(script).id %>">
+        <div class="title_bar">
+          <span class="left">[<%= Script.find(script).id %>] <%= Script.find(script).title %></span>
+          <span class="right">
+          <%=  link_to_remote "<img src='/images/button_close.png'>", :url => { :action => "remove_col1", :id => "item_"+Script.find(script).id.to_s }, 
+                                      :complete => "Element.hide('#{"item_"+Script.find(script).id.to_s}');
+                                                    Element.show('script_#{Script.find(script).id.to_s}');
+                                                    new Effect.Highlight('script_#{Script.find(script).id.to_s}');
+                                                  " %>
+          </span>
+        </div><div style="clear:both;"></div><div class="code"><%= Script.find(script).content %></div>
+      </li>
+<% end %>
+</ul>
+</div>
+
+<!-- Column 2 -->
+<div id="col_2_drop">
+<ul id="col_2">
+<% session[:col_2].each do |script,quantity| %>
+      <li id="item_<%= Script.find(script).id %>">
+        <div class="title_bar">
+          <span class="left"><%= Script.find(script).title %></span>
+          <span class="right">
+          <%=  link_to_remote "<img src='/images/button_close.png'>", :url => { :action => "remove_col2", :id => "item_"+Script.find(script).id.to_s }, 
+                                      :complete => "Element.hide('#{"item_"+Script.find(script).id.to_s}');
+                                                    Element.show('script_#{Script.find(script).id.to_s}');
+                                                    new Effect.Highlight('script_#{Script.find(script).id.to_s}');
+                                                  " %>
+          </span>
+        </div><div style="clear:both;"></div><div class="code"><%= Script.find(script).content %></div>
+      </li>
+<% end %>
+</ul>
+</div>
+
+<div style="clear:both;"></div>
+
+<!-- TEST: Column Order -->
+<div id="order"></div>
+ 
+
+<%= sortable_element 'col_1', :complete => visual_effect(:highlight, 'list'), :url => { :action => "order_col1" }, :update => "order", :containment => ["col_1","col_2"], :constraint => false, :dropOnEmpty=>true; %>
+<%= sortable_element 'col_2', :complete => visual_effect(:highlight, 'list'), :url => { :action => "order_col2" }, :update => "order", :containment => ["col_1","col_2"], :constraint => false, :dropOnEmpty=>true;  %>
+
+
+<%= 
+  # Make the 2 columns droppable:
+#   drop_receiving_element "cart", 
+#       :update => "items", 
+#       :url => { :action => "add_col_1" },
+#       :accept => "scripts", 
+#       :hoverclass => "cart-active",
+#       :loading => "Element.show('indicator')",
+#       :complete => "Element.hide('indicator'); Element.hide(element);" 
+%>

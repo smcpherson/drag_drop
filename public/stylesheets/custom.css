@@ -1,0 +1,45 @@
+/* standard elements */
+*    {margin: 0;padding: 0;}
+a    {text-decoration: none;}
+body {background: #FFF; color:#1F1F1F; font: normal 62.5% "Lucida Sans Unicode",sans-serif;}
+p,ul {font-size: 1.2em;padding-bottom: 1.2em;}
+img  {border: none;}
+ul   {margin-left: 2em;}
+h1   {font: normal 2.4em sans-serif;}
+h2   {font: bold 1.6em Verdana,sans-serif;padding-bottom: 4px;}
+
+/* structure */
+.header         {border-bottom: 1px solid #333;font: normal 2em sans-serif;height: 120px;}
+.header a       {color: #888;display: block;line-height: 120px;text-decoration: none;width: 100%;}
+.header span    {padding-left: 32px;}
+.header a:hover {color: #BBB;}
+.main           {background: #CCC; padding:10px; }
+
+/* misc */
+.clearer           {clear: both;}
+.stripes           {background: #333 url(/images/stripe.gif); height: 6px;}
+.left              {float: left;}
+.right             {float: right;}
+.scripts H3        {display:inline; }
+.wastebin-active   {background-color:#FFC2B3;}
+.cart-active       {background-color:#D9FFB3;}
+#content           {border:2px outset #E6E6E6; padding:8px; }
+#cart              {border:2px outset #888; font-weight:bold; padding:8px; width:500px;}
+#wastebin          {border:2px outset #888; font-weight:bold; padding:8px; width:360px;}
+#cart_indicator    {position:absolute; top:0; right:0; height:40px;padding-top:10px; float:right;}
+#cart_indicator P  {font-size:.8em;}
+#items>ul, .content>ul {list-style:none; margin-left:0px;}
+
+#cart UL              {width:240px; float:left;}
+#cart H2              {display:inline;}
+#col_1 LI, #col_2 LI  {border:1px gray dotted; margin:10px; margin-top:20px; padding:10px; cursor:pointer; background-color:white;}
+/*
+#cart #list .title    {float:left; font-style:italic;}
+#cart #list .remove   {float:right;}
+*/
+.title_bar            {position:relative; top:-2em; margin-left:-10px; margin-right:-10px;}
+.title_bar .left      {font-style:italic; }
+.title_bar .right     {width:16px; height:16px; }
+#col_1, #col_2        {margin-left:0px; list-style-type:none; background-color:white; border:1px gray dotted; cursor:pointer;}
+
+#record_content       {display:block; width:80em; height:20em;}

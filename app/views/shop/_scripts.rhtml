@@ -1,0 +1,17 @@
+<ul>
+    <% for script in @scripts %>
+        <li id="script_<%= script.id %>" class="scripts" style="display:<%= hide_picked(script.id) %>">
+        <%= image_tag "/images/script.png", :alt => script.title, :style=>"float:left;" %>
+        <%= draggable_element "script_#{script.id}", :revert => true %>
+        <h3><%= script.title %></h3><br/>
+        <%= script.description %><br/>
+        <span class="add">
+         <%=  link_to_remote "Add Col 1", :update => "cart", :url => { :action => "add_col_1", :id => "item_"+script.id.to_s }, 
+                                    :complete => "Element.hide('script_#{script.id.to_s}');" %> | 
+         <%=  link_to_remote "Add Col 2", :update => "cart", :url => { :action => "add_col_2", :id => "item_"+script.id.to_s }, 
+                                    :complete => "Element.hide('script_#{script.id.to_s}');" %>
+        </span>
+        <div class="clearer"><span></span></div>
+        </li>
+    <% end %>
+</ul>

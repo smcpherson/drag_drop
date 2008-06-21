@@ -1,0 +1,17 @@
+<table width="500">
+<tr><td>[params]       </td><td> <pre><%= params[:col_1].class.to_s+":"+params[:col_1].to_yaml %></pre> </td></tr>
+<tr><td>[tmp]       </td><td> <pre><%= @tmp.class.to_s+":"+@tmp.to_yaml %></pre> </td></tr>
+<tr><td>[1]         </td><td> <pre><%= @col_1.class.to_s+":"+@col_1.to_yaml %></pre></td></tr>
+<tr><td>[1 session] </td><td> <pre><%= @col_1_session.class.to_s+":"+@col_1_session.to_yaml %></pre></td></tr>
+<tr><td>[2]         </td><td> <pre><%= @col_2.class.to_s+":"+@col_2.to_yaml %></pre></td></tr>
+<tr><td>[2 session] </td><td> <pre><%= @col_2_session.class.to_s+":"+@col_2_session.to_yaml %></pre></td></tr>
+<table>
+
+Params:
+<pre>
+<%= params.to_yaml %> 
+
+<hr>
+
+<%= params[:col_1].to_yaml %>
+</pre>
